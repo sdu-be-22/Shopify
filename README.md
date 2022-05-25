@@ -18,23 +18,32 @@
 
 ### Microservices
 1. **AUTH :**
-   - **API :**
-     - POST(auth-service/oauth/token) 
-   
-   - **Model :**
-     - Username: String
-     - Password: String
-     - Email: String
-     - Enbaled: Boolean
-     - AccountNonExpired: Boolean
-     - CredentialsNonExpired: Boolean
-     - AccountNonLocked: Boolean
+   **Get Access Token**
+   Now hit the POST method URL via postman to get the oauth2 token.
+
+   **`http://localhost:8180/auth-api/oauth/token`**
+
+   Now, add the Request Headers as follows −
+   ![Снимок экрана (77)](https://user-images.githubusercontent.com/80455527/170189393-74db8b6b-7b6d-4bec-8fbf-ce066168d49e.png)
+
+   Now, add the Request body as follows −
+   ![Снимок экрана (78)](https://user-images.githubusercontent.com/80455527/170189413-10fb8a34-3df1-464e-b058-3d39115c2697.png)
+
+      **HTTP POST Response**
+      ```
+      { 
+         "access_token":"000ff762-414c-4605-858a-0ed7bee6f68e",
+         "token_type":"bearer",
+         "refresh_token":"79aabc70-f310-4c49-bf7e-516208b3bef4",
+         "expires_in":999999,
+         "scope":"read write"
+      }
+      ```
 
 2. **Product :**
    - **API :**
-     - Get(product/list) 
-     - getProductList(): List<Product> 
-     - Get(products/{id}) getProduct(id: int): Product
+     - Get(product/list) getProductList(): List<Product> 
+     - Get(products/{id}) getProduct(id: int): Product
    
    - **Model :**
      - Name: String
@@ -46,9 +55,8 @@
 
 3. **Sales :**
    - **API :*
-     - Get(sales/list) 
-     - getSalesList(): List<Sales> 
-     - Get(sales/{id}) getSales(id: int): Sales
+     - Get(sales/list) getSalesList(): List<Sales> 
+     - Get(sales/{id}) getSales(id: int): Sales
    
    - **Model :*
      - Name: String
